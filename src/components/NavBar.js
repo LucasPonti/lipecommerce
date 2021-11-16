@@ -5,7 +5,6 @@ const NavBar = () => {
         <nav className='miClase'>
             <div id='navigation' className='container'>
                 <a href='index.html'><img src={liplogo} alt="Logotipo"/></a>
-            
                 <ul id="main-nav">    
                     <li><a className='btn' href=''>Productos</a></li>
                     <li><a className='btn' href=''>Ofertas</a></li>
