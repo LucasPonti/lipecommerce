@@ -1,0 +1,22 @@
+.logocart{
+    height: auto;
+    margin-right: 70px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 1px;
+    display: inline-flex;
+}
+
+.logocart:hover{
+    background-color:rgb(88, 233, 226) ;
+}
+
+.cart {
+    height: 35px;
+    width: 35px;
+    padding: 17px 18px 10px 0px;
+}
+
+.cant{
+    font-size: 0.9em;
+}

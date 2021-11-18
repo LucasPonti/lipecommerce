@@ -1,0 +1,13 @@
+.greeting{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    background-image: url(https://ichef.bbci.co.uk/news/640/cpsprodpb/870D/production/_111437543_197389d9-800f-4763-8654-aa30c04220e4.png)  ;
+}
+
+.greeting h1 {
+    font-size: 4rem;
+    color: rgb(15, 15, 1);
+    padding: 100px;
+    color: rgb(0, 0, 0);
+}

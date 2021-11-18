@@ -1,5 +1,7 @@
 import './NavBar.css';
-import liplogo from './liplogo.png'
+import liplogo from './liplogo.png';
+import CartWidget from './CartWidget';
+
 const NavBar = () => {
     return (
         <nav className='miClase'>
@@ -10,7 +12,7 @@ const NavBar = () => {
                     <li><a className='btn' href=''>Ofertas</a></li>
                     <li><a className='btn' href=''>Otros</a></li>
                 </ul>
-                <a className='contacto' href=''>Contacto</a>
+                <a className='cartWidget' href=''><CartWidget/></a>
             </div>
         </nav>
     )
