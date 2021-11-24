@@ -1,0 +1,19 @@
+.boton {
+    background-color: ivory;
+    height: 300px;
+    width: 300px;
+    display: block;
+    padding: 5px;
+    margin: 5px;
+}
+
+.boton h1 {
+    font-size: 15px;
+}
+
+.imgprod {
+    background-image: url(https://www.experimenta.es/wp-content/uploads/2019/06/experimenta-edita-el-libro-de-bernhard-e-burdek-diseno-historia-teoria-y-practica-del-diseno-de-producto-111-600x450.jpg);
+    height: 200px;
+    display: block;
+
+}
