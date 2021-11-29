@@ -1,0 +1,25 @@
+.Item {
+    background-color: rgb(233, 231, 231);
+    width: 20%;
+    margin: 30px 10px 30px 10px;
+}
+
+.Item:hover {
+    box-shadow: rgb(126, 130, 131)5px 5px 5px 2px;
+    width: 20%;
+}
+
+.botn {
+    width: 70%;
+    background-color: rgb(180, 179, 179);
+    margin-bottom: 25px;
+}
+
+.botn:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+.prodImagen {
+    width: 70%;
+    margin: 10px;
+}
