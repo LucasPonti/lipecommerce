@@ -1,8 +1,9 @@
 import './ItemListContainer.css'
 import ItemCount from './ItemCount';
 import ItemList from './ItemList';
-import { getProductos } from './productos';
+import { getItem, getProductos } from './productos';
 import { useState, useEffect } from 'react';
+import ItemDetailContainer from './ItemDetailContainer';
 
 const ItemListContainer = ({greeting}) => {
     const onAdd = () => {
@@ -21,6 +22,15 @@ const ItemListContainer = ({greeting}) => {
         }
     }, [])
 
+    const [item, setItem] = useState()
+    const llave = 3;
+    useEffect(() => {
+        const element = getItem(llave)
+        return () => {
+            setItem();
+        }
+    }, [])
+
     return (
         <div>
             <div className='greeting'>
@@ -28,6 +38,7 @@ const ItemListContainer = ({greeting}) => {
             <ItemCount stock ={5} initial = {1} onAdd={onAdd}/>
             </div>
             <ItemList products={products}/>
+            <ItemDetailContainer item={item}/>
         </div>
         
     )
