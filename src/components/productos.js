@@ -10,7 +10,7 @@ const productos = [
         "nombre": "Curso C++",
         "precio": 18000,
         "imagen": `${c}`,
-        "tutor": " Lucas Ponti",
+        "tutor": "Aun no asignado",
         "horas": 120,
         "descripcion" : "Curso React de 0 a Experto",
         "inicio": "12/12/21",
@@ -21,44 +21,44 @@ const productos = [
           "nombre": "Curso Java",
           "precio": 18000,
           "imagen": `${java}`,
-          "tutor": "",
+          "tutor": "Aun no asignado",
           "horas": 120,
-          "descripcion" : "",
-          "inicio": "",
-          "fin": ""
+          "descripcion" : "Curso Java de 0 a Experto",
+          "inicio": "13/12/21",
+          "fin": "04/04/2022"
       },
       {
           "id": 3,
           "nombre": "Curso JavaScript",
           "precio": 13000,
           "imagen": `${javascript}`,
-          "tutor": "",
+          "tutor": "Aun no asignado",
           "horas": 120,
-          "descripcion" : "",
-          "inicio": "",
-          "fin": ""
+          "descripcion" : "Curso Javascript de 0 a Experto",
+          "inicio": "14/12/21",
+          "fin": "05/04/2022"
       },
       {
           "id": 4,
           "nombre": "Curso React",
           "precio": 12000,
           "imagen": `${react}`,
-          "tutor": "",
+          "tutor": "Aun no asignado",
           "horas": 120,
-          "descripcion" : "",
-          "inicio": "",
-          "fin": ""
+          "descripcion" : "Curso React de 0 a Experto",
+          "inicio": "15/12/21",
+          "fin": "06/04/22"
       },
       {
           "id": 5,
           "nombre": "Curso Python",
           "precio": 15000,
           "imagen": `${python}`,
-          "tutor": "",
+          "tutor": "Aun no asignado",
           "horas": 120,
-          "descripcion" : "",
-          "inicio": "",
-          "fin": ""
+          "descripcion" : "Curso Python Avanzado",
+          "inicio": "16/12/21",
+          "fin": "06/04/22"
       }
 
 ]
@@ -71,10 +71,11 @@ export const getProductos = () => {
     })
 }
 
-export const getItem = (llave) => {
+export const getItem = (id) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve(console.log(productos[llave]))
+        resolve(productos[id])
+        console.log(productos[id])
     }, 2000);
   })
 }

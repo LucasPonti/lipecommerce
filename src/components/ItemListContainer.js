@@ -22,13 +22,13 @@ const ItemListContainer = ({greeting}) => {
         }
     }, [])
 
-    const [item, setItem] = useState()
-    const llave = 3;
+    const [item, setItem] = useState(1)
+    const [id, setId] = useState(4)
+
     useEffect(() => {
-        const element = getItem(llave)
-        return () => {
-            setItem();
-        }
+       const item = getItem(id)
+       item.then(item => {setItem(item)})
+           return () => {setItem()}
     }, [])
 
     return (
