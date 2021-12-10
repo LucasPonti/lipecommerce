@@ -1,16 +1,16 @@
 import './NavBar.css';
 import liplogo from './liplogo.png';
 import CartWidget from './CartWidget';
+import {Link} from 'react-router-dom'
 
 const NavBar = () => {
     return (
         <nav className='miClase'>
             <div id='navigation' className='container'>
-                <a href='index.html'><img src={liplogo} alt="Logotipo"/></a>
-                <ul id="main-nav">    
-                    <li><a className='btn' href=''>Productos</a></li>
-                    <li><a className='btn' href=''>Ofertas</a></li>
-                    <li><a className='btn' href=''>Otros</a></li>
+                <Link to = {'/'} ><img src={liplogo} alt="Logotipo"/></Link>
+                <ul id="main-nav"> 
+                <Link to ={'/products'} className='Option'>Productos</Link>
+                <Link to = {'/count'} className='Option'>Contador</Link>
                 </ul>
                 <a className='cartWidget' href=''><CartWidget/></a>
             </div>

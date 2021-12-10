@@ -1,7 +1,12 @@
 import React from 'react'
 import './ItemDetail.css'
+import ItemCount from './ItemCount'
 
 const ItemDetail = (item) => {
+   
+    const cant = () => {
+        console.log("Agregado al carrito");
+    }
 
     return (
         <div className="cardDetalle">
@@ -13,10 +18,10 @@ const ItemDetail = (item) => {
                     <p className="datos">{item.descripcion}</p>
                     <p className="datos">Duracion:{item.horas} horas</p>
                     <p className="datos">Fecha de inicio:{item.inicio}</p>
-                    <p className="datos">Fecha de fin :{item.fin}</p>
+                    <p className="datos">Fecha de fin:{item.fin}</p>
                     <p className="datos">Tutor:{item.tutor}</p>
                     <p className="datos">Precio:{item.precio}</p>
-                    <button>Inscribirse</button>
+                    <ItemCount stock ={5} initial = {1} onAdd={cant}/>
                 </div>      
         </div>
     )

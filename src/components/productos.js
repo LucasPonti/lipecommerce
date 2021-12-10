@@ -79,3 +79,12 @@ export const getItem = (id) => {
     }, 2000);
   })
 }
+
+export const getProductbyId = (id) => {
+    return new Promise ((resolve, reject) => {
+        const product = productos.find(prod => parseInt(prod.id) === parseInt(id))
+        setTimeout(() => {
+            resolve(product)
+        }, 1000);
+    })
+}

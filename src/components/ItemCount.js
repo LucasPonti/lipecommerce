@@ -24,9 +24,8 @@ function ItemCount({stock, initial, onAdd}) {
 
         return (
             <div className="boton">
-                <div className="imgprod">'</div>
                 <div>
-                    <h2>{cant}</h2>
+                    <p className="numcont">{cant}</p>
                 </div>
                 <div>
                     <button onClick={decrementar}>-</button>
