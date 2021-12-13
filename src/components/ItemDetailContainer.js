@@ -5,12 +5,12 @@ import { getProductbyId } from './productos'
 
 const ItemDetailContainer = () => {
     const {productId} = useParams()
-    const [product, setProduct] = useState()
-   
-
+    const [product, setProduct] = useState([])
+    
     useEffect(() => {
-       getProductbyId(productId).then(item => {
-           setProduct(item)
+       getProductbyId(productId).then(prod => {
+           setProduct(prod)
+           console.log('aqui ', prod.nombre)
        }).catch(err => {
            console.log(err)
        })
@@ -19,12 +19,12 @@ const ItemDetailContainer = () => {
         }
     }, [productId])
 
-    
+    const {nombre, id, imagen, descripcion, horas, inicio, fin, tutor, precio} = product;
 
 
     return (
         <div className='itemDetailContainer'>
-           {<ItemDetail item={product}/>}
+           {<ItemDetail  nombre={nombre} id ={id} imagen={imagen} descripcion={descripcion} horas={horas} inicio={inicio} fin={fin} tutor={tutor} precio={precio}/>}
         </div>
     )
 }

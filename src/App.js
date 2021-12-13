@@ -29,8 +29,9 @@ function App() {
       </header>
           <Routes>
               <Route exact path="/" element={<ItemListContainer greeting={'Bienvenidos!'}/>}/>
+              <Route exact path="/category/:categoryId" element={<ItemListContainer/>}/>
               <Route exact path="/products" element={<ItemList products={products}/>}/>
-              <Route exact path="/detail/:productId" element={<ItemDetailContainer />}/>
+              <Route exact path="/detail/:productId" element={<ItemDetailContainer  />}/>
           </Routes>
     </div> 
     </Router>

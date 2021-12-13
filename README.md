@@ -68,3 +68,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Interacciones de la pagina
+
+Desde Brand se redirige a la pagina de inicio, en categorias se separan por si nivel de dificultad, desde productos se tiene acceso a todos los productos disponibles y por ultimo en cada producto se puede observar su respectivo detalle

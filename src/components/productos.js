@@ -14,7 +14,8 @@ const productos = [
         "horas": 120,
         "descripcion" : "Curso React de 0 a Experto",
         "inicio": "12/12/21",
-        "fin": "03/04/2022"
+        "fin": "03/04/2022",
+        "categoria": "Principiante"
       },
       {
           "id": 2,
@@ -25,7 +26,8 @@ const productos = [
           "horas": 120,
           "descripcion" : "Curso Java de 0 a Experto",
           "inicio": "13/12/21",
-          "fin": "04/04/2022"
+          "fin": "04/04/2022",
+          "categoria": "Intermedio"
       },
       {
           "id": 3,
@@ -36,7 +38,8 @@ const productos = [
           "horas": 120,
           "descripcion" : "Curso Javascript de 0 a Experto",
           "inicio": "14/12/21",
-          "fin": "05/04/2022"
+          "fin": "05/04/2022",
+          "categoria": "Avanzado"
       },
       {
           "id": 4,
@@ -47,7 +50,8 @@ const productos = [
           "horas": 120,
           "descripcion" : "Curso React de 0 a Experto",
           "inicio": "15/12/21",
-          "fin": "06/04/22"
+          "fin": "06/04/22",
+          "categoria": "Intermedio"
       },
       {
           "id": 5,
@@ -58,7 +62,8 @@ const productos = [
           "horas": 120,
           "descripcion" : "Curso Python Avanzado",
           "inicio": "16/12/21",
-          "fin": "06/04/22"
+          "fin": "06/04/22",
+          "categoria": "Principiante"
       }
 
 ]
@@ -85,6 +90,24 @@ export const getProductbyId = (id) => {
         const product = productos.find(prod => parseInt(prod.id) === parseInt(id))
         setTimeout(() => {
             resolve(product)
+            console.log(product)
+        }, 1000);
+    })
+}
+
+export const getProductbyCategory = (category) => {
+    return new Promise ((resolve, reject) => {
+        console.log('por props',category)
+        const newArray = [];
+        setTimeout(() => {
+            for(let i=0; i < 5; i++) {
+                console.log('de BD' , productos[i].categoria)
+                if (category === productos[i].categoria) {
+                    newArray.push(productos[i])
+                    console.log(productos[i])
+                }
+                resolve(newArray)
+            }
         }, 1000);
     })
 }

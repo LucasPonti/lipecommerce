@@ -10,7 +10,12 @@ const NavBar = () => {
                 <Link to = {'/'} ><img src={liplogo} alt="Logotipo"/></Link>
                 <ul id="main-nav"> 
                 <Link to ={'/products'} className='Option'>Productos</Link>
-                <Link to = {'/count'} className='Option'>Contador</Link>
+                <Link to = {'category/:id'} className='Option'>
+                    <ul>Categorias
+                        <Link to={'category/Principiante'} className='Option'>Principiante</Link>
+                        <Link to={'category/Intermedio'} className='Option'>Intermedio</Link>
+                        <Link to={'category/Avanzado'} className='Option'>Avanzado</Link>
+                    </ul></Link>
                 </ul>
                 <a className='cartWidget' href=''><CartWidget/></a>
             </div>
