@@ -8,6 +8,7 @@ const ItemListContainer = ({greeting}) => {
    
     const [cursos, setCursos] = useState([]);
     const {categoryId} = useParams();
+    
     useEffect(() => {
         (async () => {
             if (categoryId !== undefined) {

@@ -4,3 +4,20 @@
     height: 350px;
     border: 1px solid;
 }
+button {
+    font-size: 1.1 em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.finalizar{
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.95em;
+    border: 1px solid rgb(168, 166, 166);
+    border-radius: 5px;
+    color: black;
+    padding: 1.5px 10px;
+    margin: 1px;
+    background-color: rgb(229, 228, 226);
+}

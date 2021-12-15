@@ -15,7 +15,8 @@ const productos = [
         "descripcion" : "Curso React de 0 a Experto",
         "inicio": "12/12/21",
         "fin": "03/04/2022",
-        "categoria": "Principiante"
+        "categoria": "Principiante",
+        "stock": 15
       },
       {
           "id": 2,
@@ -27,7 +28,8 @@ const productos = [
           "descripcion" : "Curso Java de 0 a Experto",
           "inicio": "13/12/21",
           "fin": "04/04/2022",
-          "categoria": "Intermedio"
+          "categoria": "Intermedio",
+          "stock": 12
       },
       {
           "id": 3,
@@ -39,7 +41,8 @@ const productos = [
           "descripcion" : "Curso Javascript de 0 a Experto",
           "inicio": "14/12/21",
           "fin": "05/04/2022",
-          "categoria": "Avanzado"
+          "categoria": "Avanzado",
+          "stock": 7
       },
       {
           "id": 4,
@@ -51,7 +54,8 @@ const productos = [
           "descripcion" : "Curso React de 0 a Experto",
           "inicio": "15/12/21",
           "fin": "06/04/22",
-          "categoria": "Intermedio"
+          "categoria": "Intermedio",
+          "stock": 10
       },
       {
           "id": 5,
@@ -63,7 +67,8 @@ const productos = [
           "descripcion" : "Curso Python Avanzado",
           "inicio": "16/12/21",
           "fin": "06/04/22",
-          "categoria": "Principiante"
+          "categoria": "Principiante",
+          "stock": 8
       }
 
 ]

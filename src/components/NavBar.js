@@ -10,7 +10,7 @@ const NavBar = () => {
                 <Link to = {'/'} ><img src={liplogo} alt="Logotipo"/></Link>
                 <ul id="main-nav"> 
                 <Link to ={'/products'} className='Option'>Productos</Link>
-                <Link to = {'category/:id'} className='Option'>
+                <Link to = {'/products'} className='Option'>
                     <ul>Categorias
                         <Link to={'category/Principiante'} className='Option'>Principiante</Link>
                         <Link to={'category/Intermedio'} className='Option'>Intermedio</Link>

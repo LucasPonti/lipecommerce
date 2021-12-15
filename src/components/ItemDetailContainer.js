@@ -19,12 +19,12 @@ const ItemDetailContainer = () => {
         }
     }, [productId])
 
-    const {nombre, id, imagen, descripcion, horas, inicio, fin, tutor, precio} = product;
+    const {nombre, id, imagen, descripcion, horas, inicio, fin, tutor, precio, stock} = product;
 
 
     return (
         <div className='itemDetailContainer'>
-           {<ItemDetail  nombre={nombre} id ={id} imagen={imagen} descripcion={descripcion} horas={horas} inicio={inicio} fin={fin} tutor={tutor} precio={precio}/>}
+           {<ItemDetail  nombre={nombre} id ={id} imagen={imagen} descripcion={descripcion} horas={horas} inicio={inicio} fin={fin} tutor={tutor} precio={precio} stock ={stock} inputType='button'/>}
         </div>
     )
 }
