@@ -1,8 +1,9 @@
 import React from 'react'
 import './ItemDetail.css'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { unmountComponentAtNode } from 'react-dom';
+import CartContext from './cartContext';
+
 
 const ButtonCount = ({onConfirm, maxQuantity}) => {
     const [count, setCount] = useState(0)
@@ -24,23 +25,30 @@ const ButtonCount = ({onConfirm, maxQuantity}) => {
 
     const agregarCarrito = (count) => {
         onConfirm(count);
-        setCount(0)
         setActivo(false)
-
     }
 
-    const finalizar = () => {
-        console.log('Carga Finalizada')
+    
+   
+   const getCantidad = useContext(CartContext)
+
+    const finalizar = (count) => {
+        getCantidad(count)
+        console.log(`Finalizado ${count}`)
+        console.log(`TotalCarrito`)   
     }
 
+    
     return(
+        
         <div>
             <p>{count}</p>
             <button onClick={decrement}>-</button>
             <button onClick={increment}>+</button>
             <button onClick={() => agregarCarrito(count)} disabled={!activo}>Agregar al Carrito</button>
-            <button onClick={()=> finalizar()} disabled={activo}>Finalizar</button>
+            <Link to ={'/cart'}><button onClick={()=> {finalizar(count)}}  disabled={activo}>Finalizar</button></Link>
         </div>
+        
     )
 };
 
@@ -62,13 +70,15 @@ const InputCount = ({onConfirm, maxQuantity}) => {
 };
 
 
-
 const ItemDetail = ({nombre, id, imagen, descripcion, horas, inicio, fin, tutor, precio, stock, inputType = 'input'}) => {
    
     const Count = inputType === 'input' ? InputCount : ButtonCount;
-
+    
+    
+    
     function agregarCarrito(cantidad) {
         console.log(`Agregar al carrito el item: ${nombre} con cantidad: ${cantidad}`)
+        
     }
 
 

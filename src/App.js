@@ -8,6 +8,8 @@ import ItemList from './components/ItemList';
 import {getItem, getProductos} from './components/productos'
 import { useState, useEffect } from 'react';
 import Cart from './components/Cart'
+import CartContext from './components/cartContext';
+import CartContextProvider from './components/cartContext';
 
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
 
 
   return (
+    <CartContextProvider>
     <Router>
     <div className="App">
       <header className="App-header">
@@ -39,6 +42,7 @@ function App() {
           </Routes>
     </div> 
     </Router>
+    </CartContextProvider>
   );
 }
 

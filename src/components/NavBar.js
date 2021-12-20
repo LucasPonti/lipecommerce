@@ -2,8 +2,14 @@ import './NavBar.css';
 import liplogo from './liplogo.png';
 import CartWidget from './CartWidget';
 import {Link} from 'react-router-dom'
+import { CartContext } from './cartContext';
+import { useContext } from 'react';
+
 
 const NavBar = () => {
+
+    const getCantidad = useContext(CartContext)
+
     return (
         <nav className='miClase'>
             <div id='navigation' className='container'>
@@ -17,7 +23,8 @@ const NavBar = () => {
                         <Link to={'category/Avanzado'} className='Option'>Avanzado</Link>
                     </ul></Link>
                 </ul>
-                <a className='cartWidget' href=''><CartWidget/></a>
+                <Link to='/cart'><CartWidget/></Link>
+                
             </div>
         </nav>
     )
