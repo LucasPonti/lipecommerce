@@ -9,13 +9,13 @@ const CartContextProvider = ({children}) => {
     const [totalCarrito, setTotalCarrito] = useState(0);
 
     const getCantidad = (value) => {
-        let subTotal = 3;
+        let subTotal = value;
         setTotalCarrito(subTotal)
         return subTotal;
     }
 
     return(
-        <CartContext.Provider value={{getCantidad}}>
+        <CartContext.Provider value={{getCantidad, totalCarrito}}>
         {children}
         </CartContext.Provider>
     )

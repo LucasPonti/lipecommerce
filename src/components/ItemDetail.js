@@ -2,12 +2,13 @@ import React from 'react'
 import './ItemDetail.css'
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import CartContext from './cartContext';
+import {CartContext} from './cartContext';
 
 
 const ButtonCount = ({onConfirm, maxQuantity}) => {
     const [count, setCount] = useState(0)
     const [activo, setActivo] = useState(true) 
+    const {getCantidad} = useContext(CartContext)
 
     const increment = () => {
         if(count < maxQuantity){
@@ -26,11 +27,12 @@ const ButtonCount = ({onConfirm, maxQuantity}) => {
     const agregarCarrito = (count) => {
         onConfirm(count);
         setActivo(false)
+        console.log(getCantidad)
     }
 
     
    
-   const getCantidad = useContext(CartContext)
+   
 
     const finalizar = (count) => {
         getCantidad(count)

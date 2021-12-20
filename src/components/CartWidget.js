@@ -6,12 +6,12 @@ import { useContext } from 'react';
 
 const CartWidget = () => {
 
-   const {getCantidad} = useContext(CartContext)
+   const {totalCarrito} = useContext(CartContext)
 
     return (
         <div className='logocart'>
             <a href=''><img className='cart' src={cart} alt="cart"/></a>
-            <p>{getCantidad()}</p>
+            <p>{totalCarrito}</p>
         </div>
     );
 }
