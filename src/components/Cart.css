@@ -1,0 +1,15 @@
+.tabla {
+    height: auto;
+    width: 1360;
+    background-color: rgb(238, 238, 247);
+    padding-top: 100px;
+}
+
+.col {
+    padding-left: 70px;
+    padding-right: 200px;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    font-size: 18px;
+    border-bottom: 1px solid black;
+}

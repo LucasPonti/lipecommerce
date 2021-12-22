@@ -39,6 +39,7 @@ function App() {
               <Route exact path="/products" element={<ItemList products={products}/>}/>
               <Route exact path="/detail/:productId" element={<ItemDetailContainer  />}/>
               <Route exact path="/cart" element={<Cart/>}/>
+              <Route path = "*" element={<h2>Pagina no encontrada</h2>}/>
           </Routes>
     </div> 
     </Router>

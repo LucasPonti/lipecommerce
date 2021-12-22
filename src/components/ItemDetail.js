@@ -3,105 +3,43 @@ import './ItemDetail.css'
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import {CartContext} from './cartContext';
+import ItemCount from './ItemCount';
 
-
-const ButtonCount = ({onConfirm, maxQuantity}) => {
-    const [count, setCount] = useState(0)
-    const [activo, setActivo] = useState(true) 
-    const {getCantidad} = useContext(CartContext)
-
-    const increment = () => {
-        if(count < maxQuantity){
-            setCount(count + 1)
-        }
-    }
-
-    const decrement = () => {
-        if(count > 0) {
-            setCount(count - 1)
-        }
-    }
-    
-    
-
-    const agregarCarrito = (count) => {
-        onConfirm(count);
-        setActivo(false)
-        console.log(getCantidad)
-    }
-
-    
+const ItemDetail = ({product}) => {
    
-   
+    const {addItem} = useContext(CartContext)
 
-    const finalizar = (count) => {
-        getCantidad(count)
-        console.log(`Finalizado ${count}`)
-        console.log(`TotalCarrito`)   
+    const [comprar, setComprar] = useState(false)
+    const [cant, setCant] = useState(0);
+
+    const handleComprar = (cant) => {
+        setComprar(true);
+        setCant(cant);
     }
 
-    
-    return(
-        
-        <div>
-            <p>{count}</p>
-            <button onClick={decrement}>-</button>
-            <button onClick={increment}>+</button>
-            <button onClick={() => agregarCarrito(count)} disabled={!activo}>Agregar al Carrito</button>
-            <Link to ={'/cart'}><button onClick={()=> {finalizar(count)}}  disabled={activo}>Finalizar</button></Link>
-        </div>
-        
-    )
-};
-
-const InputCount = ({onConfirm, maxQuantity}) => {
-    const [count, setCount] = useState(0)
-
-    const handleChange = ({target}) => {
-        if(target.value < maxQuantity && target.value >= 0) {
-            setCount(target.value)
-        }
+    const handleEquipar = () => {
+        addItem(product, cant)
     }
-
-    return (
-        <div>
-            <input type='number' onChange={handleChange} value={count}/>
-            <button onClick={() => onConfirm(count)}>Agregar al carrito</button>
-        </div>
-    )
-};
-
-
-const ItemDetail = ({nombre, id, imagen, descripcion, horas, inicio, fin, tutor, precio, stock, inputType = 'input'}) => {
-   
-    const Count = inputType === 'input' ? InputCount : ButtonCount;
     
-    
-    
-    function agregarCarrito(cantidad) {
-        console.log(`Agregar al carrito el item: ${nombre} con cantidad: ${cantidad}`)
-        
-    }
-
-
-    const cant = (cantidad) => {
-        console.log(`Agregado al carrito ${cantidad} `);
-    }
+  
 
     return (
         <div className="cardDetalle">
-            <h2>{nombre}</h2>
+            <h2>{product.nombre}</h2>
                 <div>
-                    <img src={imagen} alt={id} className="prodImagen"/>
+                    <img src={product.imagen} alt={product.id} className="prodImagen"/>
                 </div>     
                 <div>
-                    <p className="datos">{descripcion}</p>
-                    <p className="datos">Duracion:{horas} horas</p>
-                    <p className="datos">Fecha de inicio:{inicio}</p>
-                    <p className="datos">Fecha de fin:{fin}</p>
-                    <p className="datos">Tutor:{tutor}</p>
-                    <p className="datos">Precio:{precio}</p>
-                    <Count onConfirm={agregarCarrito} maxQuantity={stock}/>
+                    <p className="datos">{product.descripcion}</p>
+                    <p className="datos">Duracion:{product.horas} horas</p>
+                    <p className="datos">Fecha de inicio:{product.inicio}</p>
+                    <p className="datos">Fecha de fin:{product.fin}</p>
+                    <p className="datos">Tutor:{product.tutor}</p>
+                    <p className="datos">Precio:{product.precio}</p>
+                    {!comprar ? 
+                    <ItemCount stock = {product.stock} onAdd = {(cant)=> handleComprar(cant)}/> 
+                    :
+                     <button onClick={handleEquipar}><Link to='/cart'>Finalizar</Link></button>}
                 </div>      
         </div>
     )

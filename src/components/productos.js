@@ -12,7 +12,7 @@ const productos = [
         "imagen": `${c}`,
         "tutor": "Aun no asignado",
         "horas": 120,
-        "descripcion" : "Curso React de 0 a Experto",
+        "descripcion" : "Curso C++ de 0 a Experto",
         "inicio": "12/12/21",
         "fin": "03/04/2022",
         "categoria": "Principiante",
