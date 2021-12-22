@@ -37,13 +37,13 @@ const CartContextProvider = ({children}) => {
     }
 
     const eliminarElemento = (producto, id) => {
-       setTimeout(() => {
+       
         console.log('elementoEliminado')
         console.log(producto)
         console.log(id)
         let arrayAux = cart.filter(elemento => elemento.item.id !== id)
         setCart(arrayAux)  
-       }, 5000);
+      
        
     }
 

@@ -26,7 +26,7 @@ const Cart = () => {
                             <td>{producto.item.nombre}</td>
                             <td>{producto.item.precio}</td>
                             <td>{producto.cantidad}</td>
-                            <button onClick={eliminarElemento(producto, producto.item.id)}>X</button>
+                            <button onClick={ () => eliminarElemento(producto, producto.item.id)}>X</button>
                         </tr>
                         
                     })}
