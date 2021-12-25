@@ -13,19 +13,7 @@ import CartContextProvider from './components/cartContext';
 
 
 function App() {
-  const[products, setProducts] = useState([])
-  useEffect(() => {
-    const lista = getProductos()
-    lista.then(lista => {
-        setProducts(lista)
-    })
-    return () => {
-        setProducts([])
-    }
-}, [])
-
-
-
+  
   return (
     <CartContextProvider>
     <Router>
@@ -36,7 +24,7 @@ function App() {
           <Routes>
               <Route exact path="/" element={<ItemListContainer greeting={'Bienvenidos!'}/>}/>
               <Route exact path="/category/:categoryId" element={<ItemListContainer/>}/>
-              <Route exact path="/products" element={<ItemList products={products}/>}/>
+              <Route exact path="/products" element={<ItemListContainer />}/>
               <Route exact path="/detail/:productId" element={<ItemDetailContainer  />}/>
               <Route exact path="/cart" element={<Cart/>}/>
               <Route path = "*" element={<h2>Pagina no encontrada</h2>}/>

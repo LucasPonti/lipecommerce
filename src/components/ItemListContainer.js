@@ -1,40 +1,42 @@
 import './ItemListContainer.css'
 import ItemList from './ItemList';
-import {getProductbyCategory, getProductos } from './productos';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import {collection, getDocs, query, where} from 'firebase/firestore'
+import {db} from './firebase'
 
 const ItemListContainer = ({greeting}) => {
    
-    const [cursos, setCursos] = useState([]);
     const {categoryId} = useParams();
+    const[products, setProducts] = useState([]);
     
+    console.log(categoryId)
     useEffect(() => {
-        (async () => {
-            if (categoryId !== undefined) {
-                const prod  = await getProductbyCategory(categoryId);
-                setCursos(prod)
-            } else {
-                const prod = await getProductos()
-                setCursos(prod)
-            } 
-        })()
-    }, [categoryId])
-    
-    console.log(categoryId);
+        if(!categoryId) {
+            getDocs(collection(db, 'productos')).then((querySnapshot) => {
+                console.log('snap',querySnapshot)
+                const prod = querySnapshot.docs.map(doc => {
+                    console.log('doc',doc)
+                    return {id: doc.id, ...doc.data()}
+                })
+                setProducts(prod)
+            }).catch((error) => {console.log('Error buscando items', error)})
+        } else {
+            getDocs(query(collection(db, 'productos'), where('categoria','==', categoryId))).then((querySnapshot) => {
+                console.log('snap',querySnapshot)
+                const products = querySnapshot.docs.map(doc => {
+                    console.log('doc',doc)
+                    return {id: doc.id, ...doc.data()}
+                })
+                setProducts(products)
+            }).catch((error) => {console.log('Error buscando items', error)})
+        }
+        
 
-
-    const[products, setProducts] = useState([])
-
-    useEffect(() => {
-        const lista = getProductos()
-        lista.then(lista => {
-            setProducts(lista)
-        })
         return () => {
             setProducts([])
         }
-    }, [])
+    }, [categoryId])
 
     return (
         <div>
@@ -42,7 +44,7 @@ const ItemListContainer = ({greeting}) => {
             <h1>{greeting}</h1>
             </div>
             {categoryId !== '' ? 
-            <ItemList products={cursos}/>
+            <ItemList products={products}/>
             :
             <ItemList products={products}/>
             }
