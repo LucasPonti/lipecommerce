@@ -3,12 +3,7 @@ import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import {BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom' 
 import ItemDetailContainer from './components/ItemDetailContainer';
-import ItemDetail from './components/ItemDetail';
-import ItemList from './components/ItemList';
-import {getItem, getProductos} from './components/productos'
-import { useState, useEffect } from 'react';
 import Cart from './components/Cart'
-import CartContext from './components/cartContext';
 import CartContextProvider from './components/cartContext';
 
 

@@ -1,3 +1,5 @@
+
+
 .tabla {
     height: auto;
     width: 1360;
@@ -12,4 +14,37 @@
     padding-top: 10px;
     font-size: 18px;
     border-bottom: 1px solid black;
+}
+
+
+.formulario {
+    width: 450px;
+    height: 400px;
+    background-color: cadetblue;
+    margin-top: 100px;
+    align-self: center;
+    
+}
+
+form {
+    margin-top: 100px;
+    padding-top: 50px;
+
+}
+
+label {
+    width: 500px;
+
+}
+
+input {
+    width: 400px;
+    height: 25px;
+}
+
+.fin {
+    margin-top: 15px;
+    height: 25px;
+    width: 250px;
+    font-size: 1em;
 }

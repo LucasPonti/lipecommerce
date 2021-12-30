@@ -51,8 +51,12 @@ const CartContextProvider = ({children}) => {
         setCart([]);
     }
 
+    const getTotal = () => {
+
+    }
+ 
     return(
-        <CartContext.Provider value={{cart ,getCantidad, totalCarrito, addItem ,eliminarElemento, limpiarCarrito}}>
+        <CartContext.Provider value={{cart ,getCantidad, totalCarrito, addItem ,eliminarElemento, limpiarCarrito, getTotal}}>
         {children}
         </CartContext.Provider>
     )
