@@ -26,20 +26,19 @@ const ItemDetail = ({product}) => {
     return (
         <div className="cardDetalle">
             <h2>{product.nombre}</h2>
+            <h3 className='tipo'>{product.categoria}</h3>
                 <div>
                     <img src={product.imagen} alt={product.id} className="prodImagen"/>
                 </div>     
                 <div>
                     <p className="datos">{product.descripcion}</p>
-                    <p className="datos">Duracion:{product.horas} horas</p>
-                    <p className="datos">Fecha de inicio:{product.inicio}</p>
-                    <p className="datos">Fecha de fin:{product.fin}</p>
-                    <p className="datos">Tutor:{product.tutor}</p>
-                    <p className="datos">Precio:{product.precio}</p>
+                    <p className="datos">Origen: {product.origen}</p>
+                    <p className="datos">Capsulas: {product.capsulas}</p>
+                    <p className="datos">Precio: $ {product.precio}</p>
                     {!comprar ? 
-                    <ItemCount stock = {product.stock} onAdd = {(cant)=> handleComprar(cant)}/> 
+                    <ItemCount className="counter" stock = {product.stock} onAdd = {(cant)=> handleComprar(cant)}/> 
                     :
-                     <button onClick={handleEquipar}><Link to='/cart'>Finalizar</Link></button>}
+                     <button className='btnfinal' onClick={handleEquipar}><Link className="final" to='/cart'>Finalizar</Link></button>}
                 </div>      
         </div>
     )

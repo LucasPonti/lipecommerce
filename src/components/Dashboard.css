@@ -1,0 +1,28 @@
+.dashboard {
+    padding-top: 50px;
+    padding-bottom: 250px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column ;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.linkainicio {
+    width: 150px;
+    height: 30px;
+    background-color: black;
+    display: block;
+    align-items: center;
+    border-radius: 30px;
+    font-size: 18px;
+}
+
+.linkainicio:hover {
+    background-color: rgb(34, 34, 34);
+}
+
+.lin {
+    text-decoration: none;
+    color: ivory;
+}

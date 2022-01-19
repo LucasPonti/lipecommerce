@@ -1,11 +1,12 @@
 import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
-import {BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom' 
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom' 
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart'
 import CartContextProvider from './components/cartContext';
-
+import Footer from './components/footer';
+import Dashboard from './components/Dashboard';
 
 function App() {
   
@@ -23,10 +24,13 @@ function App() {
               <Route exact path="/detail/:productId" element={<ItemDetailContainer  />}/>
               <Route exact path="/cart" element={<Cart/>}/>
               <Route path = "*" element={<h2>Pagina no encontrada</h2>}/>
+              <Route exact path="/dashboard" element={<Dashboard/>}/>
           </Routes>
+          <Footer/>
     </div> 
     </Router>
     </CartContextProvider>
+    
   );
 }
 

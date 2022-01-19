@@ -8,7 +8,12 @@
 }
 
 .logocart:hover{
-    background-color:rgb(88, 233, 226) ;
+    background-color:rgb(212, 212, 212) ;
+    border-radius: 30px;
+}
+
+.canttotal {
+    color: black;
 }
 
 .cart {
@@ -19,4 +24,5 @@
 
 .cant{
     font-size: 0.9em;
+    color: black;
 }

@@ -71,4 +71,28 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Interacciones de la pagina
 
-Desde Brand se redirige a la pagina de inicio, en categorias se separan por si nivel de dificultad, desde productos se tiene acceso a todos los productos disponibles y por ultimo en cada producto se puede observar su respectivo detalle
+### Navbar
+    Desde esta seccion mostramos el menu principal de la pagina, logotipo del ecommerce, categorias y redireccion al carrito de compras
+
+### CartWidget 
+    Muestra tanto el logo como la cantidad de productos que se encuentran en espera de orden de compra
+
+### App 
+    en la app podemos ver la pagina principal de nuestra aplicacion, se muetra tanto barra de navegacion, catalogo y footer
+
+### Footer
+    Pie de pagina de nuestra aplicacion, por el momento solo muestra nombre del alumno, institucion y camada, debe modificarse para linkear redes sociales, contacto, licencias, terminos y condiciones, etc 
+
+### Item
+    Desde aqui detallamos los datos de cada producto 
+
+### ItemDetail
+    Mostramos los datos de un item seleccionado
+
+### ItemList
+    Desde aqui mostramos todos los productos o los filtrados por categoria
+
+### ItemCount 
+    Desde aqui modificamos la cantidad de productos que hay dentro del cartWidget
+
+

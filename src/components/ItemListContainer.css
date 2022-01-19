@@ -1,13 +1,44 @@
+.contenedorTotal {
+    width: auto;
+    height: auto;
+}
+
 .greeting{
     display: flex;
     justify-content: center;
     padding-top: 50px;
-    background-image: url(https://ichef.bbci.co.uk/news/640/cpsprodpb/870D/production/_111437543_197389d9-800f-4763-8654-aa30c04220e4.png)  ;
+    background-image: url(https://i.ibb.co/x2wY6wt/tiendacafe.png);
+    height: auto;
+    width: auto;
 }
 
 .greeting h1 {
     font-size: 4rem;
     color: rgb(15, 15, 1);
-    padding: 100px;
-    color: rgb(0, 0, 0);
+    padding: 120px;
+    color: rgb(190, 157, 157);
+    margin-left: -650px;
+}
+
+h2 {
+    font-size: 1.2em;
+    padding-top: 50px;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-bottom: 50px;
+}
+
+h3 {
+    font-size: 2.2em;
+    color: blanchedalmond;
+    background-color: brown;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.prods {
+    background-image: url(https://besthqwallpapers.com/Uploads/15-4-2019/87499/thumb2-coffee-beans-texture-coffee-background-grains-coffee-black-coffee.jpg);
+    width: auto;
+    height: auto;
+    padding-bottom: 100px;
 }

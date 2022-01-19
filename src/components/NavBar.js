@@ -11,12 +11,12 @@ const NavBar = () => {
             <div id='navigation' className='container'>
                 <Link to = {'/'} ><img src={liplogo} alt="Logotipo"/></Link>
                 <ul id="main-nav"> 
-                <Link to ={'/products'} className='Option'>Productos</Link>
+                <Link to ={'/products'} className='Option'>Capsulas</Link>
                 <Link to = {'/products'} className='Option'>
                     <ul>
-                        <Link to={'category/principiante'} className='Option'>Principiante</Link>
-                        <Link to={'category/intermedio'} className='Option'>Intermedio</Link>
-                        <Link to={'category/avanzado'} className='Option'>Avanzado</Link>
+                        <Link to={'category/Suave'} className='Option'>Suave</Link>
+                        <Link to={'category/Equilibrado'} className='Option'>Equilibrado</Link>
+                        <Link to={'category/Intenso'} className='Option'>Intenso</Link>
                     </ul></Link>
                 </ul>
                 <Link to='/cart'><CartWidget/></Link>

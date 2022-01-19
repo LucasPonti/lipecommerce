@@ -3,7 +3,7 @@ import ItemDetail from './ItemDetail'
 import {useState, useEffect} from 'react'
 import { getDoc, doc } from 'firebase/firestore'
 import {db} from './firebase'
-
+import './ItemDetailContainer.css'
 
 const ItemDetailContainer = () => {
     const {productId} = useParams()

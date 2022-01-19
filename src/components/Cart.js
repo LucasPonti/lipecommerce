@@ -3,131 +3,150 @@ import './Cart.css'
 import {useContext} from 'react';
 import {CartContext} from './cartContext'
 import {db} from './firebase'
-import {addDoc, collection, doc, documentSnapshot, getDoc, getFirestore, writeBatch} from 'firebase/firestore'
-import { useState } from 'react/cjs/react.development';
-import {updateDoc, Timestamp} from 'firebase/firestore'
+import {addDoc, collection, doc, updateDoc ,getDoc, writeBatch,Timestamp, DocumentSnapshot} from 'firebase/firestore'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
 
 const Cart = () => {
     
     const {cart, getCart} = useContext(CartContext);
     const {limpiarCarrito} = useContext(CartContext);
-    const {eliminarElemento} = useContext(CartContext)
-    let totalProd = 0;
+    const {eliminarElemento} = useContext(CartContext);
     const [processingOrder, setProcessingOrder] = useState(false)
-    const [contact, setContact] = useState({
-        name:'',
-        phone: '',
-        address: ''
+    
+    const [form, getForm] = useState({
+        nombre:'',
+        apellido:'',
+        telefono: '',
+        email: ''
     })
 
-    const getTotal =  () => {
-        
-        cart.map(producto => {
-            totalProd = totalProd + producto.precio
-        }) 
-        return (totalProd)
-    }
+    let navigate = useNavigate();
+
+   
 
     const llenarFormulario = (e) => {
-        const {dato, valor} = e.target;
-        setContact({
-            ...contact,
-            [dato]: valor
-        })
-    }
+        const {name, value} = e.target;
+        getForm({
+            ...form,
+            [name]: value,
+        });
+    };
 
     const confirmOrder = () => {
+        console.log('procesando orden')
         setProcessingOrder(true)
-
+        
         const objOrder = {
-            buyer: { name: 'Lucas',  phone: '2324687537',email: 'email@email.com'},
+            buyer: { nombre: form.nombre+' '+form.apellido, telefono: form.telefono, email: form.email},
             items: cart,
-            total: getTotal(),
+            total: precioFinal,
             date: Timestamp.fromDate(new Date())
         }
 
-       
+        console.log('Aca llego 1')
         const batch = writeBatch(db)
         const outOfStock = []
 
+        let idFinal;
+
+        console.log('creacion de orders')
+
         objOrder.items.forEach((prod) => {
-            getDoc(doc(db,'productos',prod.id)).then((documentSnapshot) => {
-                if(documentSnapshot.data().stock >= prod.cantidad) {
-                    batch.update(doc(db,'productos', documentSnapshot.id), {
+            getDoc(doc(db, 'productos', prod.item.id)).then((documentSnapshot)=> {
+                if(documentSnapshot.data().stock >= prod.cantidad){
+                    batch.update(doc(db, 'productos', documentSnapshot.id), {
                         stock: documentSnapshot.data().stock - prod.cantidad
                     })
                 } else {
                     outOfStock.push({id: documentSnapshot.id, ...documentSnapshot.data()})
+                    console.log('A ver si aca llego')
                 }
             })
         })
 
+        console.log('Aca llego 2')
+
         if(outOfStock.length === 0) {
             addDoc(collection(db, 'orders'), objOrder).then(({id}) => {
+                
                 batch.commit().then(()=> {
-                    console.log('El id de orden es: ',id)
-                }) 
-            }).catch((error) => {
-                console.log('error','Error en la orden')
+                    console.log('El Id de su orden es:' , id)
+
+                })  
+            }).catch((error)=> {
+               console.log('error', `Error de Ejecucion ${error}`) 
             }).finally(()=> {
                 setProcessingOrder(false)
                 limpiarCarrito()
+                navigate('/Dashboard')
             })
         }
+
+        console.log('Aca llego 3')
+        
+    }
+
+    if(processingOrder) {
+        return <h1>Se esta procesando su orden</h1>
     }
 
 
 
-    if(cart.length === 0) {
+    if(cart.length === 0 ) {
         return (
-            <div>
+            <div className='carroVacio'>
                 <h1>Carrito</h1>
-                <h2>No hay productos en el carrito</h2>
+                <h2>No hay productos en el carrito</h2><br/>
+                <div className='contenedorInicio'><Link className='inicio' to='/'>Inicio</Link></div>
+                
             </div>
         )
     }
 
+    let precioFinal = 0;
+
     return (
         <div className='tabla'>
             <table>
-                <tr>
+                <tr className='titulos'>
                     <th className='col'>Nombre</th>
                     <th className='col'>Precio</th>
                     <th className='col'>Cantidad</th>
+                    <th className='col'>Subtotal</th>
                     <th className='col'>Eliminar</th>
                 </tr>    
                 <tbody>
                     {cart.map(producto => {
-                        return <tr>
-                            <td>{producto.item.nombre}</td>
-                            <td>{producto.item.precio}</td>
-                            <td>{producto.cantidad}</td>
+                         precioFinal = precioFinal + (producto.item.precio * producto.cantidad)
+                        return <tr className='produc'>
+                            <td className='col2'>{producto.item.nombre}</td>
+                            <td className='col2'>$ {producto.item.precio}</td>
+                            <td className='col2'>{producto.cantidad}</td>
+                            <td className='col2'>$ {producto.item.precio * producto.cantidad}</td>
                             <button onClick={ () => eliminarElemento(producto, producto.item.id)}>X</button>
                         </tr>   
                     })}
                 </tbody>   
             </table> 
-            <button onClick={limpiarCarrito}>Limpiar Carrito</button>   
-
+            <h4>Total: $ {precioFinal}</h4>
+            <button className='botonconfirm' onClick={limpiarCarrito}>Limpiar Carrito</button>          
+            <div className='formulario'>
             
-
-            <form>
-                <label>Nombre: </label>
-                <input onChange={llenarFormulario}></input>   
-                <label>Apellido: </label>
-                <input onChange={llenarFormulario}></input> 
-                <label>Telefono: </label>
-                <input onChange={llenarFormulario}></input> 
-                <label>Email: </label>
-                <input onChange={llenarFormulario}></input> 
-                <label>Comentario: </label>
-                <input onChange={llenarFormulario}></input>  
-                <button onClick={() => confirmOrder}>Confirmar Compra</button>
-            </form>
+               <div>
+               <h3>Confirmar Compra</h3>
+                 <form >
+                     <input onChange={llenarFormulario} type='text' name='nombre' placeholder='Nombre'/> <br/> 
+                     <input onChange={llenarFormulario} type='text' name='apellido' placeholder='Apellido'/><br/> 
+                     <input onChange={llenarFormulario} type='text' name='telefono' placeholder='Telefono'/> <br/>
+                     <input onChange={llenarFormulario} type='email' name='email' placeholder='E-mail'/> <br/>
+                     <button className= 'botonconfirm' onClick={()=>confirmOrder()} >Confirmar Compra</button>
+                 </form>
+                 </div>
+            </div>
         </div>
     )
 }
 
-export default Cart
+export default Cart;

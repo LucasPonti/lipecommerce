@@ -50,8 +50,9 @@ nav {
 }
 
 img {
-    height: 100px;
-    margin-left: 25px;
+    height: 70px;
+    padding-top: 15px;
+    padding-left: 20px;
 }
 
 li {
@@ -62,8 +63,7 @@ li {
 }
 
 #main-nav li:hover > .Option{
-    display: inline-flex;
+    display: flex;
     float: inherit;
-    
-}
+    }
 

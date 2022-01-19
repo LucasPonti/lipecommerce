@@ -1,12 +1,35 @@
+.contenedor {
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 50px;
+  
+}
+
 .Item {
     background-color: rgb(233, 231, 231);
-    width: 20%;
-    margin: 30px 10px 30px 10px;
+    width: 200px;
+    height: 200px;
+    margin: 30px -70px -90px 20px;
+    display: block;
+    padding-top: 10px;
 }
 
 .Item:hover {
     box-shadow: rgb(126, 130, 131)5px 5px 5px 2px;
-    width: 20%;
+    
+}
+
+.Item h2 {
+    font-size: 15px;
+    padding: 5px;
+    margin: 1px;
+}
+
+.Item img {
+    width: 70px;
+    height: 70px;
+    padding: 1px;
 }
 
 .botn {
@@ -19,10 +42,7 @@
     background-color: rgb(219, 219, 219);
 }
 
-.prodImagen {
-    width: 70%;
-    margin: 10px;
-}
+
 
 .Option {
     margin-left: 45px;

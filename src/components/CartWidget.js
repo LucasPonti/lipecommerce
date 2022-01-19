@@ -11,7 +11,7 @@ const CartWidget = () => {
     return (
         <div className='logocart'>
             <a href=''><img className='cart' src={cart} alt="cart"/></a>
-            <p>{getCantidad()}</p>
+            <p className='canttotal'>{getCantidad()}</p>
         </div>
     );
 }

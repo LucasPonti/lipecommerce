@@ -1,15 +1,57 @@
-.boton {
-    background-color: rgba(255, 255, 240, 0);
-    height: auto;
+.contenedor {
+    display: inline-flex;
     width: auto;
-    display: block;
-    padding: 5px;
-    margin: 5px;
 }
 
-.boton h1 {
+
+
+.boton {
+    height: auto;
+    width: auto;
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 30px;
+    background-color: #fff8dc;
+    text-decoration: none;
+    color: black;
+}
+
+.contenedor h1 {
     font-size: 15px;
 }
 .numcont {
-    font-size: 1rem;
+    font-size: 1em;
+    background-color: #fff8dc;
+    border-radius: 50px;
+    width: 150px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    margin: 1px;
+    display: flex;
 }
+
+.final {
+    padding-top: 25px;
+    margin: 45px;
+    padding-top: 12px;
+    text-decoration: none;
+    color: black;
+}
+
+.btnfinal{
+    margin-top: 25px;
+    padding-top: auto;
+    height: 30px;
+    color: black;
+    border-radius: 50px;
+    
+}
+
+.alerta {
+    color: darkred;
+    display: flex;
+    justify-content: center;
+}
+

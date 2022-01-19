@@ -1,0 +1,15 @@
+.pieDePagina {
+    height: 150px;
+    background-color: black;
+    margin-top: -20px;
+    overflow: hidden;
+    
+}
+
+.pieDePagina p {
+    color: white;
+    padding: 50px;
+    font-size: 1.3em;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+}
+

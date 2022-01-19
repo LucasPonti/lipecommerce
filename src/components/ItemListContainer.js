@@ -9,8 +9,6 @@ const ItemListContainer = ({greeting}) => {
    
     const {categoryId} = useParams();
     const[products, setProducts] = useState([]);
-    
-    console.log(categoryId)
     useEffect(() => {
         if(!categoryId) {
             getDocs(collection(db, 'productos')).then((querySnapshot) => {
@@ -39,15 +37,27 @@ const ItemListContainer = ({greeting}) => {
     }, [categoryId])
 
     return (
-        <div>
+        <div className='contenedorTotal'>
             <div className='greeting'>
             <h1>{greeting}</h1>
             </div>
+            <h2>Desde los cafés solos más intensos, pasando por los cafés con leche deliciosamente 
+                cremosos, hasta llegar a los tés refrescantes y los dulces chocolates: 
+                existen más de 30 variedades entre las que podés elegir.  
+            </h2>
+            <h3>Capsulas</h3>
+            <div className='prods'>
+            
+            <div className='carrusel'>
+                <div className='hijo'>
             {categoryId !== '' ? 
             <ItemList products={products}/>
             :
             <ItemList products={products}/>
             }
+            </div>
+            </div>
+            </div>
         </div> 
     )
 }
